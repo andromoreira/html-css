@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        * {
+            margin: 2px;
+            padding: 0px;
+        }
+        input {
+            background-color: rgb(229, 236, 236);
+            border: 1.5px solid rgb(112, 109, 109);
+            border-radius: 3px;
+            
+        }
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            color: rgb(9,92, 27);
+            padding-left: 1px;
+        }
+       hr {
+        border: 3px solid rgb(9, 92, 27);
+        margin-bottom: 10px;
+       }
+       
+       fieldset {
+        padding: 10px;
+        border-radius: 5px;
+       }
+       .login, .contato {
+        font-weight: bold;
+        background-color: rgb(219, 213, 213);
+        padding: 8px;
+       }
+       .cpf {
+        padding: 5px;
+       }
+       .input_cpf {
+        height: 22px;
+        padding-left: 9px;
+       }
+       .label_email {
+        padding: 5px;
+       }
+       .input_email {
+        width: 250px;
+        height: 22px;
+        padding-left: 4px;
+       }
+       .label_senha {
+        padding: 5px;
+       }
+       .input_senha {
+        width: 200px;
+        height: 22px;
+        padding-left: 4px;
+       }
+      div#dados_contato > input {
+        height: 22px;
+        padding-left: 4px;
+        margin-top: 10px;
+        margin-right: 90px;
+      }
+      div#dados_contato > label {
+        padding: 5px;
+      }
+      select#isexo, select#iestado {
+        background-color: rgb(229, 236, 236);
+        border: 1.5px solid rgb(112, 109, 109);
+        height: 26px;
+        margin-top: 10px;
+        margin-right: 50px;
+        border-radius: 3px;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+      .input_rg {
+       text-align: center;
+       padding-right: 8px;
+      }
+      .input_icep{
+       text-align: center;
+       padding-right: 8px;
+      }
+     
+      #enviar, #limpar {
+        background-color: rgb(211, 219, 219); 
+        width: 80px;
+        border-radius: 5px;
+        padding: 1px;  
+        font-size: 18px;
+        margin-top: 20px;
+        margin-right: 20px;
+      }
+    </style>
+</head>
+<body>
+    <h2>CADASTRE-SE</h2>
+    <hr>
+    
+    <form action="cadastro.php" method="post" autocomplete="on">
+        <fieldset>
+            <div class="login">Dados de Login</div>
+            <div class="cpf">
+            <label for="icpf">CPF</label><br>
+            <input type="text" name="cpf" id="icpf" required minlength="11" maxlength="14" size="10" placeholder="xxx.xxx.xxx-xx" class="input_cpf">
+           </div>
+
+           <div>
+            <label for="iemail" class="label_email">E-mail</label>
+            <input type="email" name="email" id="iemail" class="input_email" required>
+
+            <label for="iconfirmar" class="label_email">Confirmar</label>
+            <input type="email" name="confirmar" id="iconfirmar" required class="input_email">
+
+            <label for="isenha" class="label_senha">Senha</label>
+            <input type="password" name="senha" id="isenha" required minlength="5" maxlength="10" class="input_senha">
+
+            <label for="isconfirmar" class="label_senha">Confirmar</label>
+            <input type="password" name="sconfirmar" id="isconfirmar" required minlength="5" maxlength="10" class="input_senha">
+           </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <div class="contato">Dados de Contato</div>
+            <div id="dados_contato">
+                <label for="iname">Nome</label>
+                <input type="text" name="name" id="iname" required size="35">
+
+                <label for="isobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" id="isobrenome" required size="35"><br>
+
+                <label for="inascimento">Nascimento</label>
+                <input type="date" name="nascimento" id="inascimento" required >
+
+                <label for="irg">RG</label>
+                <input type="text" name="rg" id="irg" class="input_rg" required size="8" placeholder="x.xxx.xxx-x">
+
+                <label for="isexo">Sexo</label>
+                <select name="sexo"  id="isexo" required>
+                    <option value="" selected>---Selecione---</option>
+                    <option value="F">Feminino</option>
+                    <option value="M">Masculino</option>
+                </select>
+
+                <br>
+
+                <label for="icep">CEP</label>
+                <input type="text" name="cep" id="icep" class="input_icep" required size="10" minlength="9" maxlength="9" placeholder="xx.xxx-xxx">
+
+                <label for="iendereco">Endereço</label>
+                <input type="text" name="endereco" id="iendereco" class="input_endereco" required size="80">
+
+                <label for="inumero">Nº</label>
+                <input type="text" name="numero" id="inumero" required maxlength="5"  size="2">
+
+                <br>
+
+                <label for="ibairro">Bairro</label>
+                <input type="text" name="bairro" id="ibairro" required size="15" maxlength="20">
+
+                <label for="icomplemento">Complemento</label>
+                <input type="text" name="complemento" id="icomplemento" required size="15" maxlength="30">
+
+                <label for="icidade">Cidade</label>
+                <input type="text" name="cidade" id="icidade" required size="20" maxlength="25">
+
+                <br>
+
+                <label for="iestado">Estado</label>
+                <select name="estado" id="iestado" required>
+                    <option value=""select> ---Selecione---</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="PR">Paraná</option>
+                </select>
+
+                <label for="ifixo">DDD+Telefone</label>
+                <input type="tel" name="telefone" id="ifixo" required size="12" minlength="12" maxlength="12" placeholder="xx xxxx xxxx">
+
+                <label for="icelular">DDD+Celular</label>
+                <input type="tel" name="celular" id="icelular" required size="10" minlength="11" maxlength="11" placeholder="xx x xxxx xxxx">
+
+            </div>
+        </fieldset>
+        <p>
+            <input id="enviar" type="submit" value="Enviar">
+            <input id="limpar" type="reset" value="Limpar">
+        </p>
+    </form>
+    
+</body>
+</html>
